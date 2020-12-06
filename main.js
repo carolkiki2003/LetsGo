@@ -2,7 +2,9 @@ let vm = new Vue({
   el: '#app',
   data(){
       return{
-          citys:null
+          citys:null,
+          selectedCity:'臺北市',
+          percent:10,
       }
   },
   mounted(){

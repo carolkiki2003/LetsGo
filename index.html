@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let's Go!</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div id="app" class="main">
-        <select name="" id="">
-            <option v-for="city in citys" value="city">{{city}}</option>
+        <h1>就是現在!找個好天氣好地點出遊吧</h1>
+        <p>請選擇縣市：</p>
+        <select name="" id="" v-model="selectedCity">
+            <option v-for="city in citys" :value="city">{{city}}</option>
         </select>
+        <p>請選擇降雨機率：</p>
+        <select name="" id="" v-model="percent">
+            <option v-for="percent in 10" :value="percent*10">{{percent*10}}％以下</option>
+        </select>
+        <p>下列為<span>{{selectedCity}}</span>且符合降雨機率<span>{{percent}}％</span>以下的出遊景點：</p>
     </div>
 </body>
 </html>
