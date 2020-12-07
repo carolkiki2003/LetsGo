@@ -9,15 +9,23 @@
 <body>
     <div id="app" class="main">
         <h1>就是現在!找個好天氣好地點出遊吧</h1>
-        <p>請選擇縣市：</p>
-        <select name="" id="" v-model="selectedCity">
-            <option v-for="city in citys" :value="city">{{city}}</option>
-        </select>
+        <div class="selectArea">
+            <p>請選擇縣市：</p>
+            <select name="" id="" v-model="selectedCity">
+                <option value="" disabled selected hidden>縣市</option>
+                <option v-for="city in citys" :value="city">{{city}}</option>
+            </select>
+        </div>
+        <div class="selectArea">
         <p>請選擇降雨機率：</p>
-        <select name="" id="" v-model="percent">
+        <select name="" id="" v-model="percentage">
+            <option value="" disabled selected hidden>降雨機率</option>
             <option v-for="percent in 10" :value="percent*10">{{percent*10}}％以下</option>
         </select>
-        <p>下列為<span>{{selectedCity}}</span>且符合降雨機率<span>{{percent}}％</span>以下的出遊景點：</p>
+        </div>
+        <button @click="getData">送出</button>
+        <p v-if="!!send && !!selectedCity && !!percentage">下列為<span>{{selectedCity}}</span>且符合降雨機率<span>{{percentage}}％</span>以下的出遊景點：</p>
+        <p>{{data}}</p>
     </div>
 </body>
 </html>

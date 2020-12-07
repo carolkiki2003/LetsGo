@@ -3,15 +3,26 @@ let vm = new Vue({
   data(){
       return{
           citys:null,
-          selectedCity:'臺北市',
-          percent:10,
+          selectedCity:'',
+          percentage:'',
+          send:false,
+          data:null
       }
   },
   mounted(){
-      this.getData()
+      this.getCityJson()
   },
   methods:{
       getData(){
+        axios.get("./data.json")
+        .then(res=>{
+            this.data=res.data
+            if (!this.selectedCity && !this.percentage){
+              this.send=false
+            }else this.send=true
+        })
+      },
+    getCityJson(){
           axios.get("./citys.json")
               .then(res=>{
                   this.citys=res.data.citys
