@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Go!</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    {% if name == "" %}
+    <form method="post">
+        <input type="text" name="user">
+        <input type="submit" name="send" value="送出">
+    </form>
+    {% else %}
+    <p>Hello,{{name}}</p>
+    {% endif %}
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="./main.js"></script>
